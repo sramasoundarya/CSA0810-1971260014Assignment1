@@ -1,0 +1,6 @@
+@lru_cache(maxsize=None)
+def ways_memo(n):
+    global calls
+    calls += 1
+    if n <= 1: return 1
+    return ways_memo(n-1) + ways_memo(n-2)
