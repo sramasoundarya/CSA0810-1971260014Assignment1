@@ -1,0 +1,13 @@
+#CO1
+def buggy(u, ration, elder):
+    r = []
+    if u <= 100: r.append("full")
+    if u <= 200 and ration: r.append("partial")   # overlaps with the first
+    if u > 200 and elder: r.append("full")
+    return r or ["none"]
+
+def correct(u, ration, elder):
+    if u <= 100: return "full"
+    elif 101 <= u <= 200: return "partial" if ration else "none"
+    elif elder: return "full"
+    else: return "none"
