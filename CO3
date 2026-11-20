@@ -1,0 +1,13 @@
+Co3
+def normalise(text):
+    return text.strip().replace(" ", "").replace("-", "").upper()
+
+def is_valid(reg):
+    if len(reg) not in (9, 10): return False
+    if not (reg[:2].isalpha() and reg[2:4].isdigit() and reg[-4:].isdigit()):
+        return False
+    series = reg[4:-4]
+    return series.isalpha() and len(series) in (1, 2)
+
+def fmt(reg):
+    return f"{reg[:2]} {reg[2:4]} {reg[4:-4]} {reg[-4:]}"
